@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="api_test" groupId="com.example.api_test.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/api_test.xml</file>
+    </artifact>
+    <artifact name="sequence" groupId="com.example.api_test.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/sequence.xml</file>
+    </artifact>
+    <artifact name="endpoint" groupId="com.example.api_test.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/endpoint.xml</file>
+    </artifact>
+</artifacts>

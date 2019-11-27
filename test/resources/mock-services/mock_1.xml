@@ -1,0 +1,15 @@
+<mock-service>
+    <service-name>endpoint</service-name>
+    <port>9190</port>
+    <context>/endpoints</context>
+    <resources>
+        <resource>
+            <sub-context>/</sub-context>
+            <method>GET</method>
+            <response>
+                <status-code>200</status-code>
+                <payload><![CDATA[{"response":"api get"}]]></payload>
+            </response>
+        </resource>
+    </resources>
+</mock-service>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="sequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log level="full"/>
+    <property expression="json-eval($.input)" name="request_message" scope="default" type="STRING"/>
+    <payloadFactory media-type="xml">
+        <format>
+            <response xmlns="">
+                <header>
+                    <status>SUCCESS</status>
+                    <status_code>001</status_code>
+                    <status_desc>Successfully received sample data: api</status_desc>
+                </header>
+                <data>
+                    <input>$1</input>
+                </data>
+            </response>
+        </format>
+        <args>
+            <arg evaluator="xml" expression="$ctx:request_message"/>
+        </args>
+    </payloadFactory>
+    <log level="full"/>
+    <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+    <log level="custom">
+        <property name="msg" value="sample_proxy: end"/>
+    </log>
+    <respond/>
+</sequence>

@@ -1,0 +1,48 @@
+<unit-test>
+    <artifacts>
+        <test-artifact>
+            <artifact>/api_test/src/main/synapse-config/api/api_test.xml</artifact>
+        </test-artifact>
+        <supportive-artifacts>
+            <artifact>/api_test/src/main/synapse-config/sequences/sequence.xml</artifact>
+            <artifact>/api_test/src/main/synapse-config/endpoints/endpoint.xml</artifact>
+        </supportive-artifacts>
+        <registry-resources/>
+        <connector-resources/>
+    </artifacts>
+    <test-cases>
+        <test-case name="case_api_get">
+            <input>
+                <request-path>/get</request-path>
+                <request-method>GET</request-method>
+            </input>
+            <assertions>
+                <assertEquals>
+                    <actual>$body</actual>
+                    <expected><![CDATA[{"response":"api get"}]]></expected>
+                    <message>api get assertion failed</message>
+                </assertEquals>
+            </assertions>
+        </test-case>
+        <test-case name="case_api_post">
+            <input>
+                <request-path>/send</request-path>
+                <request-method>POST</request-method>
+                <payload><![CDATA[{"input":"input"}]]></payload>
+                <properties>
+                    <property name="Content-type" scope="transport" value="application/json"/>
+                </properties>
+            </input>
+            <assertions>
+                <assertEquals>
+                    <actual>$body</actual>
+                    <expected><![CDATA[{"response":"api get"}]]></expected>
+                    <message>api post assertion failed</message>
+                </assertEquals>
+            </assertions>
+        </test-case>
+    </test-cases>
+    <mock-services>
+        <mock-service>/api_test/test/resources/mock-services/mock_1.xml</mock-service>
+    </mock-services>
+</unit-test>

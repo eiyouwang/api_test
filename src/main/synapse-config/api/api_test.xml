@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/apis" name="api_test" version="1.0" version-type="context" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/get">
+        <inSequence>
+            <log level="full"/>
+            <call>
+                <endpoint key="endpoint"/>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/send">
+        <inSequence>
+            <log level="full"/>
+            <sequence key="sequence"/>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>
